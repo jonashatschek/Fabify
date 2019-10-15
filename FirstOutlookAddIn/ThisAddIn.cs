@@ -32,11 +32,6 @@ namespace FirstOutlookAddIn
         private void ThisAddIn_Startup(object sender, EventArgs e)
         {
             CreateUI();
-            //DemoAppointmentsInRange();
-            //ExportToExcel();
-            //inspectors = this.Application.Inspectors;
-            //inspectors.NewInspector +=
-            //new Microsoft.Office.Interop.Outlook.InspectorsEvents_NewInspectorEventHandler(Inspectors_NewInspector);
 
         }
 
@@ -220,8 +215,7 @@ namespace FirstOutlookAddIn
 
             foreach (SummarizedDate s in result)
             {
-                //if()
-                //TODO:continue here
+
                 Range currentFind = null;
                 Range firstFind = null;
 
@@ -230,8 +224,9 @@ namespace FirstOutlookAddIn
                 //TODO: implement something to separate the category string. Format is e.g. Grow - Development.
                 //TODO: right now business task is separated with LINQ right into the result variable.
                 Range Fruits = excelApplicaton.get_Range("C5", "C10");
-                // You should specify all these parameters every time you call this method,
-                // since they can be overridden in the user interface. 
+
+                // "You should specify all these parameters every time you call this method,
+                // since they can be overridden in the user interface." 
                 currentFind = Fruits.Find("Grow", missing,
                      XlFindLookIn.xlValues, XlLookAt.xlPart,
                      XlSearchOrder.xlByRows, XlSearchDirection.xlNext, false,
@@ -311,12 +306,6 @@ namespace FirstOutlookAddIn
         public string BusinessTask { get; set; }
 
         public SummarizedDate() { }
-
-        //public int ConvertToHours (int minutes)
-        //{
-        //    int hours = minutes / 60;
-        //    return hours;
-        //}
 
     }
 
